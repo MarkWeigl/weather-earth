@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Earth</title>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>Weather Earth</h1>
+  <div id="search">
+    <h3 id="prompt">Enter location to see Weather Forecast</h3>
+    <form id="search-form">
+      <input type="text" placeholder="Denver, CO">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div id="forecast">
+    <button id="search-again">Search Again</button>
+    <h3>Currently in <span id="location"></span></h3>
+    <div id="details-wrapper">
+      <div id="details">
+        <p class="detail">Conditions:  <span id="conditions"></span></p>
+        <p class="detail">Temperature: <span id="temperature"></span></p>
+        <p class="detail">Humidity:  <span id="humidity"></span></p>
+        <p class="detail">Wind:  <span id="wind"></span></p>
+      </div>
+      <div id="map"></div>
+    </div>
+    <H3>Forecast</H3>
+    <ul id="forecast"></ul>
+    <div id="license">
+      <img>
+      <p>Weather Underground....</p>
+    </div>
+  </div>
+</body>
+</html>
