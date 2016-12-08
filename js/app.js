@@ -20,16 +20,23 @@ $(document).ready(function(){
     getDataFromApi(city, state, showResults);
   });
   
+  function getRadarImage(city, state, callback) {
+    var url = WUNDERGROUND_BASE_URL+'/'+ KEY +'/animatedradar/q/'+state+'/'+city+'.gif?'+'+width=280&height=280&newmaps=1';
+    $.getJSON(url, function(data){
+      callback(data);
+    });
+  }
 
   function showResults(data){
     $('#forecast').show();
     $('#search').hide();
     $('#location').text(data.current_observation.display_location.full);
     $('#temperature').text(data.current_observation.temp_f);
-    $('#conditions').text(data.current_observation.icon);
+    $('#conditions').text(data.current_observation.weather);
     $('#humidity').text(data.current_observation.relative_humidity);
-    $('#wind').text(data.current_observation.wind_mph);
+    $('#wind').text(data.current_observation.wind_string);
     $('#feelslike').text(data.current_observation.feelslike_f);
+
     console.log(data);
   }
 
