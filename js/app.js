@@ -6,11 +6,11 @@ $(document).ready(function(){
   function getDataFromApi(city, state, callback) {
     var url = WUNDERGROUND_BASE_URL+'/'+ KEY +'/geolookup/conditions/q/'+state+'/'+city+'.json';
     $.getJSON(url, function(data){
-      console.log(data);
+      callback(data);
     });
   }
 
-  $('forecast').hide();
+  $('#forecast').hide();
 
   $('#search-form').submit(function(e) {
     e.preventDefault();
@@ -21,7 +21,22 @@ $(document).ready(function(){
   });
   
 
-  function showResults(){
-    console.log(showResults);
+  function showResults(data){
+    $('#forecast').show();
+    $('#search').hide();
+    $('#location').text(data.current_observation.display_location.full);
+    $('#temperature').text(data.current_observation.temp_f);
+    $('#conditions').text(data.current_observation.icon);
+    $('#humidity').text(data.current_observation.relative_humidity);
+    $('#wind').text(data.current_observation.wind_mph);
+    $('#feelslike').text(data.current_observation.feelslike_f);
+    console.log(data);
   }
+
+  $('#search-again').mousedown(function() {
+    $('#forecast').hide();
+    $('#search').show();
+  });
+
+  
 });

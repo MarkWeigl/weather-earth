@@ -1,3 +1,4 @@
-* {
-    background-image:  url ('images/sky.jpg');
+body {
+    background-image: url('./images/sky.jpg');
+    background-size: cover;
 }
