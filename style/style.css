@@ -2,3 +2,13 @@ body {
     background-image: url('../images/sky.jpg');
     background-size: cover;
 }
+
+#forecast li {
+  display: inline-block;
+
+}
+
+#forecast {
+  list-style-type: none;
+
+}
